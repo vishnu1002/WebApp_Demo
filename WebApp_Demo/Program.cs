@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using WebApp_Demo.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var connectionString = "Data Source=PTPLL444\\SQLDEV; Initial Catalog=vishnunDB; Integrated Security=True; TrustServerCertificate=True;";
+
+builder.Services.AddDbContext<AppDBContext>(x => x.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
