@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 using WebApp_Demo.Models;
 
 namespace WebApp_Demo.Controllers
@@ -33,6 +34,21 @@ namespace WebApp_Demo.Controllers
             }
 
             return View(tree1);
+        }
+
+        public IActionResult Form(MyTree mytree)
+        {
+            return View();
+        }
+
+        public IActionResult AddTreeResult(MyTree tree)
+        {
+            if(ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View();
         }
     }
 }

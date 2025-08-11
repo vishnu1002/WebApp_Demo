@@ -1,0 +1,34 @@
+﻿@{
+	ViewData["Title"] = "Tree Form";
+}
+
+@model MyTree
+
+<form asp-action="AddTreeResult">
+
+	<div>
+		<label class="mt-4">Name</label>
+		<input class="form-control" type="text" placeholder="Enter tree name" asp-for="Name" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+
+	<div>
+		<label class="mt-4">Description</label>
+		<input class="form-control" type="text" placeholder="Tree description" asp-for="Description" />
+		<span asp-validation-for="Description" class="text-danger"></span>
+	</div>
+	
+	<div>
+		<label class="mt-4">Tree Count</label>
+		<input class="form-control" type="text" placeholder="Enter no of trees" asp-for="TreeCount" />
+		<span asp-validation-for="TreeCount" class="text-danger"></span>
+	</div>
+	
+	<button class="mt-4 btn btn-primary" type="submit">Submit</button>
+</form>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
